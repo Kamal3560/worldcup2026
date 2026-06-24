@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>World Cup Prediction Pool</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="rail">
+        <div class="brand">
+          <div class="mark">26</div>
+          <div>
+            <h1>World Cup Pool</h1>
+            <p>Live predictions and payouts</p>
+          </div>
+        </div>
+
+        <nav class="tabs" aria-label="Views">
+          <button class="tab active" data-view="overview">Overview</button>
+          <button class="tab" data-view="leaderboard">Leaderboard</button>
+          <button class="tab" data-view="matches">Matches</button>
+          <button class="tab" data-view="participants">Participants</button>
+          <button class="tab" data-view="predictions">Predictions</button>
+          <button class="tab" data-view="scenario">Scenario</button>
+          <button class="tab" data-view="setup">Setup</button>
+        </nav>
+
+        <section class="panel">
+          <h2>Live Feed</h2>
+          <div id="feedStatus" class="status">Loading workbook data...</div>
+          <label class="check">
+            <input id="autoRefreshInput" type="checkbox" checked />
+            <span>Auto refresh every minute</span>
+          </label>
+          <label class="check">
+            <input id="seedScoresInput" type="checkbox" checked />
+            <span>Use workbook scores until live API is connected</span>
+          </label>
+          <button id="refreshBtn">Refresh scores</button>
+        </section>
+
+        <section class="panel">
+          <h2>Workbook Prizes</h2>
+          <div id="prizeSummary" class="prizeSummary">Loading spreadsheet prize values...</div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h2 id="appTitle">2026 World Cup Prediction Pool</h2>
+            <p id="appSubtitle">Exact score wins first. Correct outcome is the fallback. No winner rolls into the champion fund.</p>
+          </div>
+          <div class="actions">
+            <input id="searchInput" type="search" placeholder="Search teams, people, venues..." />
+            <button id="exportBtn" class="secondary">Export CSV</button>
+          </div>
+        </header>
+
+        <section id="overview" class="view active">
+          <div class="kpis">
+            <div><strong id="kpiLeader">-</strong><span>Current leader</span></div>
+            <div><strong id="kpiConfirmed">0</strong><span>Confirmed matches</span></div>
+            <div><strong id="kpiLive">0</strong><span>Live matches</span></div>
+            <div><strong id="kpiRollover">0</strong><span>Champion rollover</span></div>
+          </div>
+
+          <section class="resultsPanel">
+            <div class="sectionTitle">
+              <div>
+                <h2>Match Results</h2>
+                <p class="muted">Shows every live match at the same time, then latest completed matches.</p>
+              </div>
+              <span id="resultsStatus" class="badge scheduled">STANDBY</span>
+            </div>
+            <div id="resultBoard" class="resultBoard"></div>
+          </section>
+
+          <div class="grid two">
+            <section class="panel">
+              <div class="sectionTitle">
+                <h2>Top Standings</h2>
+                <span id="updatedAt" class="muted">Not updated yet</span>
+              </div>
+              <div id="topLeaders" class="leaderList"></div>
+            </section>
+            <section class="panel">
+              <div class="sectionTitle">
+                <h2>Match Winners</h2>
+                <span class="muted">Exact score priority</span>
+              </div>
+              <div id="recentWinners" class="matchList compact"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="leaderboard" class="view">
+          <div class="sectionTitle">
+            <h2>Leaderboard</h2>
+            <span class="muted">Confirmed payouts plus live provisional payouts</span>
+          </div>
+          <div id="leaderboardTable" class="table"></div>
+        </section>
+
+        <section id="matches" class="view">
+          <div class="sectionTitle">
+            <h2>Matches</h2>
+            <div class="inlineControls">
+              <select id="stageFilter"></select>
+              <select id="statusFilter">
+                <option value="all">All statuses</option>
+                <option value="live">Live</option>
+                <option value="final">Final</option>
+                <option value="scheduled">Scheduled</option>
+              </select>
+            </div>
+          </div>
+          <div id="matchesList" class="matchList"></div>
+        </section>
+
+        <section id="participants" class="view">
+          <div class="sectionTitle">
+            <h2>Participant Detail</h2>
+            <select id="participantSelect"></select>
+          </div>
+          <div id="participantDetail" class="participantDetail"></div>
+        </section>
+
+        <section id="predictions" class="view">
+          <div class="sectionTitle">
+            <h2>Prediction Trends</h2>
+            <span class="muted">Consensus and outliers by match</span>
+          </div>
+          <div id="predictionTrends" class="grid two"></div>
+        </section>
+
+        <section id="scenario" class="view">
+          <div class="sectionTitle">
+            <h2>Scenario Lab</h2>
+            <span class="muted">Try a score and see instant impact</span>
+          </div>
+          <section class="panel">
+            <div class="scenarioGrid">
+              <label>
+                Match
+                <select id="scenarioMatch"></select>
+              </label>
+              <label>
+                Home goals
+                <input id="scenarioHome" type="number" min="0" step="1" value="0" />
+              </label>
+              <label>
+                Away goals
+                <input id="scenarioAway" type="number" min="0" step="1" value="0" />
+              </label>
+              <button id="applyScenarioBtn">Apply</button>
+              <button id="clearScenarioBtn" class="secondary">Clear manual scores</button>
+            </div>
+          </section>
+          <div id="scenarioResult" class="grid two"></div>
+        </section>
+
+        <section id="setup" class="view">
+          <div class="grid two">
+            <section class="panel">
+              <h2>Free Deployment</h2>
+              <ol class="steps">
+                <li>Push this `worldcup-live` folder to GitHub.</li>
+                <li>Create a Cloudflare Pages project from the repo.</li>
+                <li>Use `public` as the output directory.</li>
+                <li>Add API secrets only if you want automatic live scores.</li>
+              </ol>
+            </section>
+            <section class="panel">
+              <h2>Live API</h2>
+              <p class="muted">The app calls `/api/live`. The included Pages Function hides your API key and caches responses, so visitors do not burn through the free API quota individually.</p>
+              <pre class="code">FOOTBALL_PROVIDER=api-football
+API_FOOTBALL_KEY=your_key
+API_FOOTBALL_LEAGUE=1
+API_FOOTBALL_SEASON=2026</pre>
+            </section>
+          </div>
+          <section class="panel">
+            <h2>Refresh Data From Excel</h2>
+            <pre class="code">python3 scripts/export_workbook.py "/path/to/2026 FIFA World Cup.xlsx" --output public/data/predictions.json</pre>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
