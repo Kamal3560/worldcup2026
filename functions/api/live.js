@@ -16,12 +16,14 @@ export async function onRequestGet({ request, env }) {
 
   const provider = (env.FOOTBALL_PROVIDER || "mock").toLowerCase();
   let payload;
-  if (provider === "api-football" && env.API_FOOTBALL_KEY) {
+  if (provider === "espn" || provider === "mock") {
+    payload = await fromEspn();
+  } else if (provider === "api-football" && env.API_FOOTBALL_KEY) {
     payload = await fromApiFootball(env);
   } else if (provider === "football-data" && env.FOOTBALL_DATA_TOKEN) {
     payload = await fromFootballData(env);
   } else {
-    payload = mockPayload();
+    payload = await fromEspn();
   }
 
   const response = json(payload, 200, {
@@ -29,6 +31,63 @@ export async function onRequestGet({ request, env }) {
   });
   await cache.put(cacheKey, response.clone());
   return response;
+}
+
+async function fromEspn() {
+  const today = new Date();
+  const dates = [-1, 0, 1].map((offset) => formatEspnDate(addDays(today, offset)));
+  const results = await Promise.all(
+    dates.map(async (date) => {
+      const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=${date}`, {
+        headers: { "User-Agent": "worldcup2026-prediction-pool/1.0" },
+      });
+      if (!response.ok) return [];
+      const body = await response.json();
+      return body.events || [];
+    }),
+  );
+
+  const seen = new Set();
+  const matches = [];
+  for (const event of results.flat()) {
+    if (!event?.id || seen.has(event.id)) continue;
+    seen.add(event.id);
+    const competition = event.competitions?.[0];
+    const competitors = competition?.competitors || [];
+    const home = competitors.find((item) => item.homeAway === "home");
+    const away = competitors.find((item) => item.homeAway === "away");
+    if (!home || !away) continue;
+    const status = normalizeEspnStatus(competition?.status || event.status);
+    matches.push({
+      providerId: event.id,
+      id: event.id,
+      home: home.team?.displayName || home.team?.shortDisplayName || home.team?.name,
+      away: away.team?.displayName || away.team?.shortDisplayName || away.team?.name,
+      score: [Number(home.score || 0), Number(away.score || 0)],
+      status,
+      minute: competition?.status?.displayClock || event.status?.displayClock || null,
+      date: event.date || competition?.date || null,
+    });
+  }
+
+  return {
+    provider: "espn",
+    updatedAt: new Date().toISOString(),
+    matches,
+  };
+}
+
+function addDays(date, offset) {
+  const copy = new Date(date);
+  copy.setUTCDate(copy.getUTCDate() + offset);
+  return copy;
+}
+
+function formatEspnDate(date) {
+  const yyyy = date.getUTCFullYear();
+  const mm = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(date.getUTCDate()).padStart(2, "0");
+  return `${yyyy}${mm}${dd}`;
 }
 
 async function fromApiFootball(env) {
@@ -99,6 +158,17 @@ function normalizeStatus(status) {
   if (["HT", "PAUSED", "BT"].includes(value)) return "HALFTIME";
   if (["FT", "AET", "PEN", "FINISHED"].includes(value)) return "FINAL";
   return value || "SCHEDULED";
+}
+
+function normalizeEspnStatus(status) {
+  const type = status?.type || {};
+  const state = String(type.state || "").toLowerCase();
+  const name = String(type.name || "").toUpperCase();
+  const detail = String(type.shortDetail || type.detail || "").toUpperCase();
+  if (type.completed || state === "post" || name.includes("FULL_TIME") || detail === "FT") return "FINAL";
+  if (state === "in" || name.includes("IN_PROGRESS") || detail.includes("'")) return "LIVE";
+  if (detail.includes("HT") || name.includes("HALF")) return "HALFTIME";
+  return "SCHEDULED";
 }
 
 function withCors(response) {

@@ -32,7 +32,16 @@ The browser calls:
 /api/live
 ```
 
-The included Pages Function supports these providers:
+The included Pages Function defaults to ESPN's public FIFA World Cup scoreboard feed, which requires no API key:
+
+```text
+FOOTBALL_PROVIDER=espn
+LIVE_CACHE_SECONDS=55
+```
+
+This is the free automatic option. It is public and currently returns the 2026 FIFA World Cup scoreboard, but it is not a paid SLA-backed data contract.
+
+The function can also use API-Football if you later upgrade to a plan with 2026 season access:
 
 ```text
 FOOTBALL_PROVIDER=api-football
@@ -53,7 +62,7 @@ LIVE_CACHE_SECONDS=55
 
 Important: API provider fixture IDs may not match workbook match numbers. The frontend also matches live games by home and away team names.
 
-For a strictly free setup, start with API-Football's free tier and keep the refresh rate conservative. The app caches `/api/live` so many visitors share one provider request, but a provider's daily quota can still be exhausted if the site polls all day. Before the tournament, verify that the free tier covers the exact 2026 World Cup season and live-score endpoint you need.
+API-Football's free tier currently blocks the 2026 season, so ESPN is the recommended free automatic source.
 
 ## Refresh Data From Excel
 

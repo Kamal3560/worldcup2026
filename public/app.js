@@ -9,6 +9,19 @@ const state = {
 };
 
 const outcome = ([home, away]) => (home > away ? "H" : home < away ? "A" : "D");
+const TEAM_ALIASES = {
+  czechia: "czech republic",
+  "south korea": "korea republic",
+  "usa": "united states",
+  "usmnt": "united states",
+  "iran": "i r iran",
+  "ir iran": "i r iran",
+  "cote d ivoire": "ivory coast",
+  "côte d ivoire": "ivory coast",
+  curacao: "curacao",
+  curaçao: "curacao",
+  "bosnia herzegovina": "bosnia and herzegovina",
+};
 const money = (value) => {
   const formatted = new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }).format(Number(value || 0));
   return `${formatted}${state.settings.moneySuffix || ""}`;
@@ -151,12 +164,13 @@ function sameMatch(live, match) {
 }
 
 function normalizeName(value) {
-  return String(value || "")
+  const normalized = String(value || "")
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+  return TEAM_ALIASES[normalized] || normalized;
 }
 
 function calculate() {
