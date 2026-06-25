@@ -112,12 +112,18 @@ function activeScore(match) {
   if (manual) return { score: manual.score, status: manual.status || "MANUAL", minute: manual.minute || null, source: "manual" };
 
   const live = state.live.matches.find((item) => sameMatch(item, match));
-  if (live?.score) return { score: live.score, status: live.status || "LIVE", minute: live.minute || null, source: state.live.provider };
+  if (live?.score && hasUsableLiveScore(live.status)) {
+    return { score: live.score, status: live.status || "LIVE", minute: live.minute || null, source: state.live.provider };
+  }
 
   if ($("seedScoresInput")?.checked && match.seedScore) {
     return { score: match.seedScore, status: "FINAL", minute: null, source: "workbook" };
   }
   return { score: null, status: "SCHEDULED", minute: null, source: "schedule" };
+}
+
+function hasUsableLiveScore(status) {
+  return ["LIVE", "IN_PLAY", "PAUSED", "HALFTIME", "FINAL", "FINISHED", "FT"].includes(String(status || "").toUpperCase());
 }
 
 function scoreMatch(match) {

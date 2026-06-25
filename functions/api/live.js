@@ -58,14 +58,15 @@ async function fromEspn() {
     const away = competitors.find((item) => item.homeAway === "away");
     if (!home || !away) continue;
     const status = normalizeEspnStatus(competition?.status || event.status);
+    const hasStarted = ["LIVE", "HALFTIME", "FINAL"].includes(status);
     matches.push({
       providerId: event.id,
       id: event.id,
       home: home.team?.displayName || home.team?.shortDisplayName || home.team?.name,
       away: away.team?.displayName || away.team?.shortDisplayName || away.team?.name,
-      score: [Number(home.score || 0), Number(away.score || 0)],
+      score: hasStarted ? [Number(home.score || 0), Number(away.score || 0)] : null,
       status,
-      minute: competition?.status?.displayClock || event.status?.displayClock || null,
+      minute: hasStarted ? competition?.status?.displayClock || event.status?.displayClock || null : null,
       date: event.date || competition?.date || null,
     });
   }
