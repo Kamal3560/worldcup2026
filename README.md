@@ -1,6 +1,6 @@
 # World Cup Prediction Pool
 
-A free-first web app for the 2026 World Cup prediction pool. It reads the Excel workbook into static JSON, calculates leaderboard payouts in the browser, and can pull live match scores through a Cloudflare Pages Function without exposing an API key.
+A free-first web app for the 2026 World Cup prediction pool. It reads the Excel workbook into static JSON, calculates leaderboard payouts in the browser, and pulls live match scores automatically through Cloudflare without exposing an API key.
 
 ## What Is Included
 
@@ -9,20 +9,26 @@ A free-first web app for the 2026 World Cup prediction pool. It reads the Excel 
 - Manual scenario mode for testing any match score.
 - Local CSV export of the leaderboard.
 - `scripts/export_workbook.py` to refresh `public/data/predictions.json` from the workbook.
-- `functions/api/live.js` Cloudflare Pages Function for live scores, caching, and API-key hiding.
+- `functions/api/live.js` shared live-score handler for ESPN/API providers.
+- `worker.js` and `wrangler.toml` Cloudflare Worker deployment that serves the app and `/api/live`.
 
 ## Free Hosting Plan
 
-Use Cloudflare Pages:
+Use Cloudflare Workers with Static Assets:
 
 1. Push this folder to GitHub.
-2. Create a Cloudflare Pages project from the repo.
+2. In Cloudflare, create a Worker connected to the GitHub repo.
 3. Set the project root to `worldcup-live` if the repo has other folders.
-4. Set the build command to empty.
-5. Set the output directory to `public`.
-6. Deploy.
+4. Make sure Cloudflare uses `wrangler.toml`.
+5. Deploy.
 
-The app is static and has no database requirement.
+The app uses Cloudflare Static Assets for the frontend and a Worker route for `/api/live`. There is no database requirement.
+
+You can also deploy from this folder with Wrangler:
+
+```bash
+npx wrangler deploy
+```
 
 ## Live Scores
 
@@ -32,7 +38,7 @@ The browser calls:
 /api/live
 ```
 
-The included Pages Function defaults to ESPN's public FIFA World Cup scoreboard feed, which requires no API key:
+The included Worker defaults to ESPN's public FIFA World Cup scoreboard feed, which requires no API key:
 
 ```text
 FOOTBALL_PROVIDER=espn
