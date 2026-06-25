@@ -592,6 +592,11 @@ h3 {
   .rail {
     border-right: 0;
     border-bottom: 1px solid var(--line);
+    gap: 12px;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .actions,
@@ -633,6 +638,10 @@ h3 {
 
   .actions {
     grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .leaderRow,
