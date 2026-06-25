@@ -94,7 +94,7 @@ Open:
 http://127.0.0.1:8080
 ```
 
-The local static preview will use workbook/manual scores unless you run through Cloudflare Pages local development for `/api/live`.
+The local static preview will use workbook/manual scores unless you run through Cloudflare Workers local development for `/api/live`.
 
 ## Scoring Rules
 

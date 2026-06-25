@@ -168,18 +168,16 @@
               <h2>Free Deployment</h2>
               <ol class="steps">
                 <li>Push this `worldcup-live` folder to GitHub.</li>
-                <li>Create a Cloudflare Pages project from the repo.</li>
-                <li>Use `public` as the output directory.</li>
-                <li>Add API secrets only if you want automatic live scores.</li>
+                <li>Create a Cloudflare Worker connected to the repo.</li>
+                <li>Use the included `wrangler.toml` file.</li>
+                <li>Cloudflare serves `public` and routes `/api/live` through the Worker.</li>
               </ol>
             </section>
             <section class="panel">
-              <h2>Live API</h2>
-              <p class="muted">The app calls `/api/live`. The included Pages Function hides your API key and caches responses, so visitors do not burn through the free API quota individually.</p>
-              <pre class="code">FOOTBALL_PROVIDER=api-football
-API_FOOTBALL_KEY=your_key
-API_FOOTBALL_LEAGUE=1
-API_FOOTBALL_SEASON=2026</pre>
+              <h2>Automatic Scores</h2>
+              <p class="muted">The app calls `/api/live`. The Worker pulls ESPN's public World Cup scoreboard feed, caches it, and sends live/final scores to every visitor automatically.</p>
+              <pre class="code">FOOTBALL_PROVIDER=espn
+LIVE_CACHE_SECONDS=55</pre>
             </section>
           </div>
           <section class="panel">
