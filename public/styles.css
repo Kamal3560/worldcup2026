@@ -518,6 +518,10 @@ h3 {
   line-height: 1.45;
 }
 
+.winnerLine {
+  overflow-wrap: anywhere;
+}
+
 .matchScore {
   min-width: 80px;
   text-align: right;

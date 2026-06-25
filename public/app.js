@@ -298,8 +298,7 @@ function upcomingCard(item) {
 
 function resultCard(item) {
   const score = item.score ? `${item.score[0]}-${item.score[1]}` : "-";
-  const winners = item.winners.length ? item.winners.slice(0, 5).join(", ") : item.score ? "Rollover" : "Pending";
-  const more = item.winners.length > 5 ? ` +${item.winners.length - 5}` : "";
+  const winners = winnerText(item, "Rollover", "Pending");
   return `
     <article class="resultCard ${item.isLive ? "isLive" : ""}">
       <div class="resultTop">
@@ -312,9 +311,14 @@ function resultCard(item) {
         <strong>${escapeHtml(item.match.away || "TBD")}</strong>
       </div>
       <div class="matchMeta">#${item.match.id} | ${escapeHtml(item.match.venue || "Venue TBD")} | ${escapeHtml(item.source)}</div>
-      <div class="winnerLine">${escapeHtml(item.winnerType)}: ${escapeHtml(winners)}${more} | share ${money(item.prizePerWinner)} | prize ${money(item.match.prizePerMatch)}</div>
+      <div class="winnerLine">${escapeHtml(item.winnerType)}: ${escapeHtml(winners)} | share ${money(item.prizePerWinner)} | prize ${money(item.match.prizePerMatch)}</div>
     </article>
   `;
+}
+
+function winnerText(item, rolloverText, pendingText) {
+  if (item.winners.length) return item.winners.join(", ");
+  return item.score ? rolloverText : pendingText;
 }
 
 function leaderRow(row, index) {
@@ -363,8 +367,7 @@ function renderMatches(model) {
 
 function matchCard(item) {
   const score = item.score ? `${item.score[0]}-${item.score[1]}` : "-";
-  const winners = item.winners.length ? item.winners.slice(0, 8).join(", ") : item.score ? "Rollover to champion fund" : "No result yet";
-  const more = item.winners.length > 8 ? ` +${item.winners.length - 8} more` : "";
+  const winners = winnerText(item, "Rollover to champion fund", "No result yet");
   return `
     <article class="matchCard">
       <div class="matchNo">${item.match.id}</div>
@@ -372,7 +375,7 @@ function matchCard(item) {
         <div class="matchTeams">${escapeHtml(item.match.home || "TBD")} vs ${escapeHtml(item.match.away || "TBD")}</div>
         <div class="matchMeta">${escapeHtml(item.match.stage)} ${item.match.group ? `| Group ${escapeHtml(item.match.group)}` : ""} | ${escapeHtml(item.match.date || "Date TBD")} ${escapeHtml(item.match.time || "")}</div>
         <div class="matchMeta">${escapeHtml(item.match.venue || "Venue TBD")} | ${escapeHtml(item.status)} | ${escapeHtml(item.source)}</div>
-        <div class="winnerLine">${escapeHtml(item.winnerType)}: ${escapeHtml(winners)}${more} | share ${money(item.prizePerWinner)} | prize ${money(item.match.prizePerMatch)}</div>
+        <div class="winnerLine">${escapeHtml(item.winnerType)}: ${escapeHtml(winners)} | share ${money(item.prizePerWinner)} | prize ${money(item.match.prizePerMatch)}</div>
       </div>
       <div class="matchScore">${score}</div>
     </article>
