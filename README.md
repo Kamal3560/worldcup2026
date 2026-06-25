@@ -4,10 +4,8 @@ A free-first web app for the 2026 World Cup prediction pool. It reads the Excel 
 
 ## What Is Included
 
-- Public web dashboard with Overview, Leaderboard, Matches, Participants, Predictions, Scenario, and Setup tabs.
+- Public web dashboard with Overview, Leaderboard, Matches, Participants, and Predictions tabs.
 - Exact-score priority, correct-outcome fallback, prize splitting, and champion-fund rollover.
-- Manual scenario mode for testing any match score.
-- Local CSV export of the leaderboard.
 - `scripts/export_workbook.py` to refresh `public/data/predictions.json` from the workbook.
 - `functions/api/live.js` shared live-score handler for ESPN/API providers.
 - `worker.js` and `wrangler.toml` Cloudflare Worker deployment that serves the app and `/api/live`.
@@ -38,7 +36,7 @@ The browser calls:
 /api/live
 ```
 
-The included Worker defaults to ESPN's public FIFA World Cup scoreboard feed, which requires no API key:
+The included Worker defaults to ESPN's public FIFA World Cup scoreboard feed, which requires no API key. It fetches match days from the tournament start through tomorrow so older final results continue to count in the leaderboard:
 
 ```text
 FOOTBALL_PROVIDER=espn
@@ -94,7 +92,7 @@ Open:
 http://127.0.0.1:8080
 ```
 
-The local static preview will use workbook/manual scores unless you run through Cloudflare Workers local development for `/api/live`.
+The local static preview will use workbook scores unless you run through Cloudflare Workers local development for `/api/live`.
 
 ## Scoring Rules
 
@@ -103,6 +101,6 @@ For each match:
 1. Participants with the exact score split the match prize.
 2. If there is no exact-score winner, participants with the correct outcome split the match prize.
 3. If there is no winner, the match prize rolls into the champion fund.
-4. Live/manual scores are shown as provisional. Final scores are shown as confirmed.
+4. Live scores are shown as provisional. Final scores are shown as confirmed.
 
 Prize values come from the workbook's stage prize table and are displayed without adding a currency symbol.

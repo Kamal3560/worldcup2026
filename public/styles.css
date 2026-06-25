@@ -1,17 +1,18 @@
 :root {
   color-scheme: light;
-  --ink: #182230;
-  --muted: #667085;
-  --line: #d0d5dd;
-  --page: #eef3f7;
+  --ink: #111827;
+  --muted: #64748b;
+  --line: #d8dee8;
+  --page: #f3f7f4;
   --panel: #ffffff;
-  --soft: #f8fafc;
-  --green: #0f766e;
-  --green-dark: #115e59;
-  --blue: #2563eb;
+  --soft: #f8fbf9;
+  --green: #08705f;
+  --green-dark: #074d45;
+  --blue: #1d4ed8;
   --red: #b42318;
-  --gold: #b7791f;
-  --violet: #6d28d9;
+  --gold: #a16207;
+  --rose: #be123c;
+  --navy: #102a43;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -78,7 +79,7 @@ p {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.1;
 }
 
@@ -101,13 +102,13 @@ h3 {
 .shell {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  grid-template-columns: minmax(250px, 310px) minmax(0, 1fr);
 }
 
 .rail {
-  border-right: 1px solid var(--line);
-  background: #fbfcfe;
-  padding: 18px;
+  border-right: 1px solid #c9d5df;
+  background: #fbfdfb;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -126,26 +127,27 @@ h3 {
 }
 
 .mark {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: #123c69;
+  background: var(--navy);
   color: #fff;
   font-weight: 900;
+  box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.14);
 }
 
 .tabs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 8px;
 }
 
 .tab.active {
-  background: var(--green);
+  background: var(--navy);
   color: #fff;
-  border-color: var(--green);
+  border-color: var(--navy);
 }
 
 .panel {
@@ -155,6 +157,7 @@ h3 {
   padding: 16px;
   display: grid;
   gap: 12px;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.04);
 }
 
 .status {
@@ -209,7 +212,7 @@ h3 {
 
 .workspace {
   min-width: 0;
-  padding: 20px;
+  padding: 22px;
   display: grid;
   gap: 18px;
   align-content: start;
@@ -223,6 +226,20 @@ h3 {
   gap: 14px;
 }
 
+.topbar {
+  border: 1px solid #cdd9d3;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(16, 42, 67, 0.08);
+}
+
+.topbar h2 {
+  color: var(--navy);
+  font-size: 18px;
+  text-transform: none;
+}
+
 .topbar p {
   margin-top: 4px;
   color: var(--muted);
@@ -230,10 +247,7 @@ h3 {
 }
 
 .actions {
-  width: min(520px, 46vw);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px;
+  width: min(460px, 42vw);
 }
 
 .view {
@@ -256,12 +270,13 @@ h3 {
   border-radius: 8px;
   background: #fff;
   padding: 14px;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.04);
 }
 
 .kpis strong {
   display: block;
-  color: var(--green-dark);
-  font-size: 24px;
+  color: var(--navy);
+  font-size: 23px;
   line-height: 1.1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -280,10 +295,11 @@ h3 {
 .resultsPanel {
   border: 1px solid #9ccfc7;
   border-radius: 8px;
-  background: #f2fbf8;
+  background: #f4fbf7;
   padding: 18px;
   display: grid;
   gap: 14px;
+  box-shadow: 0 8px 30px rgba(8, 112, 95, 0.08);
 }
 
 .badge {
@@ -313,7 +329,7 @@ h3 {
 }
 
 .resultCard {
-  border: 1px solid #b7d7cf;
+  border: 1px solid #c8ded7;
   border-radius: 8px;
   background: #fff;
   padding: 14px;
@@ -356,7 +372,7 @@ h3 {
 .resultScore {
   min-width: 94px;
   border-radius: 8px;
-  background: #123c69;
+  background: var(--navy);
   color: #fff;
   padding: 10px 12px;
   text-align: center;
@@ -393,7 +409,8 @@ h3 {
 .leaderRow,
 .matchCard,
 .trendCard,
-.participantCard {
+.participantCard,
+.upcomingCard {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
@@ -436,6 +453,7 @@ h3 {
   border-radius: 8px;
   overflow: hidden;
   background: #fff;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.04);
 }
 
 .tableRow,
@@ -466,6 +484,15 @@ h3 {
   grid-template-columns: 54px minmax(0, 1fr) auto;
   gap: 12px;
   align-items: start;
+}
+
+.matchCard:hover,
+.leaderRow:hover,
+.participantCard:hover,
+.trendCard:hover,
+.upcomingCard:hover {
+  border-color: #b8c5d6;
+  box-shadow: 0 8px 18px rgba(16, 42, 67, 0.06);
 }
 
 .matchNo {
@@ -512,11 +539,16 @@ h3 {
   width: min(420px, 50vw);
 }
 
-.scenarioGrid {
+.upcomingGrid {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) 120px 120px auto auto;
   gap: 10px;
-  align-items: end;
+}
+
+.upcomingCard {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
 }
 
 .trendCard {
@@ -534,7 +566,7 @@ h3 {
 .bar i {
   display: block;
   height: 100%;
-  background: var(--violet);
+  background: var(--rose);
 }
 
 .predictionPills {
@@ -550,25 +582,6 @@ h3 {
   padding: 5px 9px;
   font-size: 12px;
   font-weight: 800;
-}
-
-.code {
-  margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #101828;
-  color: #f9fafb;
-  padding: 12px;
-  overflow-x: auto;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.steps {
-  margin: 0;
-  padding-left: 20px;
-  color: #344054;
-  line-height: 1.6;
 }
 
 @media (max-width: 980px) {
@@ -594,8 +607,7 @@ h3 {
   }
 
   .kpis,
-  .grid.two,
-  .scenarioGrid {
+  .grid.two {
     grid-template-columns: 1fr;
   }
 
@@ -619,13 +631,13 @@ h3 {
     padding: 14px;
   }
 
-  .tabs,
   .actions {
     grid-template-columns: 1fr;
   }
 
   .leaderRow,
-  .matchCard {
+  .matchCard,
+  .upcomingCard {
     grid-template-columns: 1fr;
   }
 

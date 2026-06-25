@@ -35,7 +35,9 @@ export async function onRequestGet({ request, env }) {
 
 async function fromEspn() {
   const today = new Date();
-  const dates = [-1, 0, 1].map((offset) => formatEspnDate(addDays(today, offset)));
+  const start = new Date("2026-06-11T00:00:00Z");
+  const end = minDate(addDays(today, 1), new Date("2026-07-20T00:00:00Z"));
+  const dates = dateRange(start, end).map(formatEspnDate);
   const results = await Promise.all(
     dates.map(async (date) => {
       const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=${date}`, {
@@ -78,10 +80,22 @@ async function fromEspn() {
   };
 }
 
+function dateRange(start, end) {
+  const dates = [];
+  for (let cursor = new Date(start); cursor <= end; cursor = addDays(cursor, 1)) {
+    dates.push(new Date(cursor));
+  }
+  return dates;
+}
+
 function addDays(date, offset) {
   const copy = new Date(date);
   copy.setUTCDate(copy.getUTCDate() + offset);
   return copy;
+}
+
+function minDate(a, b) {
+  return a < b ? a : b;
 }
 
 function formatEspnDate(date) {

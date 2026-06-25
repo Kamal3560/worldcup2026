@@ -23,22 +23,12 @@
           <button class="tab" data-view="matches">Matches</button>
           <button class="tab" data-view="participants">Participants</button>
           <button class="tab" data-view="predictions">Predictions</button>
-          <button class="tab" data-view="scenario">Scenario</button>
-          <button class="tab" data-view="setup">Setup</button>
         </nav>
 
         <section class="panel">
           <h2>Live Feed</h2>
           <div id="feedStatus" class="status">Loading workbook data...</div>
-          <label class="check">
-            <input id="autoRefreshInput" type="checkbox" checked />
-            <span>Auto refresh every minute</span>
-          </label>
-          <label class="check">
-            <input id="seedScoresInput" type="checkbox" checked />
-            <span>Use workbook scores until live API is connected</span>
-          </label>
-          <button id="refreshBtn">Refresh scores</button>
+          <button id="refreshBtn">Refresh now</button>
         </section>
 
         <section class="panel">
@@ -51,11 +41,10 @@
         <header class="topbar">
           <div>
             <h2 id="appTitle">2026 World Cup Prediction Pool</h2>
-            <p id="appSubtitle">Exact score wins first. Correct outcome is the fallback. No winner rolls into the champion fund.</p>
+            <p id="appSubtitle">Automatic match results, live standings, and spreadsheet prize values.</p>
           </div>
           <div class="actions">
             <input id="searchInput" type="search" placeholder="Search teams, people, venues..." />
-            <button id="exportBtn" class="secondary">Export CSV</button>
           </div>
         </header>
 
@@ -94,6 +83,14 @@
               <div id="recentWinners" class="matchList compact"></div>
             </section>
           </div>
+
+          <section class="panel">
+            <div class="sectionTitle">
+              <h2>Upcoming Matches</h2>
+              <span class="muted">Next scheduled games</span>
+            </div>
+            <div id="upcomingMatches" class="upcomingGrid"></div>
+          </section>
         </section>
 
         <section id="leaderboard" class="view">
@@ -134,56 +131,6 @@
             <span class="muted">Consensus and outliers by match</span>
           </div>
           <div id="predictionTrends" class="grid two"></div>
-        </section>
-
-        <section id="scenario" class="view">
-          <div class="sectionTitle">
-            <h2>Scenario Lab</h2>
-            <span class="muted">Try a score and see instant impact</span>
-          </div>
-          <section class="panel">
-            <div class="scenarioGrid">
-              <label>
-                Match
-                <select id="scenarioMatch"></select>
-              </label>
-              <label>
-                Home goals
-                <input id="scenarioHome" type="number" min="0" step="1" value="0" />
-              </label>
-              <label>
-                Away goals
-                <input id="scenarioAway" type="number" min="0" step="1" value="0" />
-              </label>
-              <button id="applyScenarioBtn">Apply</button>
-              <button id="clearScenarioBtn" class="secondary">Clear manual scores</button>
-            </div>
-          </section>
-          <div id="scenarioResult" class="grid two"></div>
-        </section>
-
-        <section id="setup" class="view">
-          <div class="grid two">
-            <section class="panel">
-              <h2>Free Deployment</h2>
-              <ol class="steps">
-                <li>Push this `worldcup-live` folder to GitHub.</li>
-                <li>Create a Cloudflare Worker connected to the repo.</li>
-                <li>Use the included `wrangler.toml` file.</li>
-                <li>Cloudflare serves `public` and routes `/api/live` through the Worker.</li>
-              </ol>
-            </section>
-            <section class="panel">
-              <h2>Automatic Scores</h2>
-              <p class="muted">The app calls `/api/live`. The Worker pulls ESPN's public World Cup scoreboard feed, caches it, and sends live/final scores to every visitor automatically.</p>
-              <pre class="code">FOOTBALL_PROVIDER=espn
-LIVE_CACHE_SECONDS=55</pre>
-            </section>
-          </div>
-          <section class="panel">
-            <h2>Refresh Data From Excel</h2>
-            <pre class="code">python3 scripts/export_workbook.py "/path/to/2026 FIFA World Cup.xlsx" --output public/data/predictions.json</pre>
-          </section>
         </section>
       </section>
     </main>

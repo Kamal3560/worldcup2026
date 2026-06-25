@@ -3,7 +3,6 @@ const $ = (id) => document.getElementById(id);
 const state = {
   data: null,
   live: { matches: [], updatedAt: null, provider: "none", error: null },
-  manualScores: JSON.parse(localStorage.getItem("wcManualScores") || "{}"),
   settings: {},
   timer: null,
 };
@@ -36,6 +35,7 @@ async function boot() {
     stagePrizes: state.data.settings?.stagePrizes || {},
   };
   localStorage.removeItem("wcSettings");
+  localStorage.removeItem("wcManualScores");
   $("appTitle").textContent = state.data.settings?.title || "2026 World Cup Prediction Pool";
   fillStaticControls();
   bindEvents();
@@ -54,7 +54,6 @@ function fillStaticControls() {
   const stages = ["all", ...new Set(state.data.matches.map((match) => match.stage))];
   $("stageFilter").innerHTML = stages.map((stage) => `<option value="${escapeAttr(stage)}">${stage === "all" ? "All stages" : escapeHtml(stage)}</option>`).join("");
   $("participantSelect").innerHTML = state.data.participants.map((name) => `<option value="${escapeAttr(name)}">${escapeHtml(name)}</option>`).join("");
-  $("scenarioMatch").innerHTML = state.data.matches.map((match) => `<option value="${match.id}">#${match.id} ${escapeHtml(match.home || "TBD")} vs ${escapeHtml(match.away || "TBD")}</option>`).join("");
 }
 
 function bindEvents() {
@@ -66,22 +65,15 @@ function bindEvents() {
       $(tab.dataset.view).classList.add("active");
     });
   });
-  ["searchInput", "stageFilter", "statusFilter", "participantSelect", "seedScoresInput"].forEach((id) => $(id).addEventListener("input", render));
+  ["searchInput", "stageFilter", "statusFilter", "participantSelect"].forEach((id) => $(id).addEventListener("input", render));
   $("refreshBtn").addEventListener("click", async () => {
     await refreshLive();
     render();
   });
-  $("autoRefreshInput").addEventListener("change", scheduleRefresh);
-  $("applyScenarioBtn").addEventListener("click", applyScenario);
-  $("clearScenarioBtn").addEventListener("click", clearScenario);
-  $("scenarioMatch").addEventListener("change", syncScenarioFields);
-  $("exportBtn").addEventListener("click", exportCsv);
-  syncScenarioFields();
 }
 
 function scheduleRefresh() {
   if (state.timer) clearInterval(state.timer);
-  if (!$("autoRefreshInput").checked) return;
   state.timer = setInterval(async () => {
     await refreshLive();
     render();
@@ -102,21 +94,18 @@ async function refreshLive() {
       provider: "offline",
       updatedAt: new Date().toISOString(),
       matches: [],
-      error: "Live API not connected. Using workbook/manual scores.",
+      error: "Live scores are not connected in this preview. Using workbook scores.",
     };
   }
 }
 
 function activeScore(match) {
-  const manual = state.manualScores[String(match.id)];
-  if (manual) return { score: manual.score, status: manual.status || "MANUAL", minute: manual.minute || null, source: "manual" };
-
   const live = state.live.matches.find((item) => sameMatch(item, match));
   if (live?.score && hasUsableLiveScore(live.status)) {
     return { score: live.score, status: live.status || "LIVE", minute: live.minute || null, source: state.live.provider };
   }
 
-  if ($("seedScoresInput")?.checked && match.seedScore) {
+  if (match.seedScore) {
     return { score: match.seedScore, status: "FINAL", minute: null, source: "workbook" };
   }
   return { score: null, status: "SCHEDULED", minute: null, source: "schedule" };
@@ -138,7 +127,7 @@ function scoreMatch(match) {
     winnerType: "none",
     prizePerWinner: 0,
     rollover: 0,
-    isLive: ["LIVE", "IN_PLAY", "PAUSED", "HALFTIME", "MANUAL"].includes(String(active.status).toUpperCase()),
+    isLive: ["LIVE", "IN_PLAY", "PAUSED", "HALFTIME"].includes(String(active.status).toUpperCase()),
     isFinal: ["FINAL", "FINISHED", "FT"].includes(String(active.status).toUpperCase()),
   };
   if (!active.score) return base;
@@ -224,15 +213,15 @@ function render() {
   renderMatches(model);
   renderParticipant(model);
   renderPredictionTrends(model);
-  renderScenario(model);
 }
 
 function renderStatus(model) {
   const pieces = [];
   if (state.live.error) pieces.push(state.live.error);
-  pieces.push(`Provider: ${state.live.provider}`);
-  pieces.push(`Workbook: ${state.data.matches.length} matches, ${state.data.participants.length} participants`);
-  pieces.push(`${model.confirmedMatches} final, ${model.liveMatches} live`);
+  pieces.push(`Automatic scores: ${state.live.provider}`);
+  pieces.push(`${model.confirmedMatches} final matches`);
+  pieces.push(`${model.liveMatches} live now`);
+  pieces.push(`${state.data.participants.length} players`);
   $("feedStatus").textContent = pieces.join(" | ");
   renderPrizeSummary();
 }
@@ -254,6 +243,7 @@ function renderOverview(model) {
     .reverse()
     .map(matchCard)
     .join("");
+  renderUpcoming(model);
 }
 
 function renderPrizeSummary() {
@@ -282,7 +272,28 @@ function renderResultBoard(model) {
   $("resultsStatus").className = `badge ${liveItems.length ? "" : "final"}`;
   $("resultBoard").innerHTML = items.length
     ? items.map(resultCard).join("")
-    : `<div class="emptyResults">No match results yet. Connect the live API or keep workbook scores enabled.</div>`;
+    : `<div class="emptyResults">No match results yet. This board updates automatically when games start.</div>`;
+}
+
+function renderUpcoming(model) {
+  const upcoming = model.matchResults.filter((item) => !item.score).slice(0, 6);
+  $("upcomingMatches").innerHTML = upcoming.length
+    ? upcoming.map(upcomingCard).join("")
+    : `<div class="emptyResults">No upcoming matches found.</div>`;
+}
+
+function upcomingCard(item) {
+  return `
+    <article class="upcomingCard">
+      <div class="matchNo">${item.match.id}</div>
+      <div>
+        <strong>${escapeHtml(item.match.home || "TBD")} vs ${escapeHtml(item.match.away || "TBD")}</strong>
+        <p class="matchMeta">${escapeHtml(item.match.stage)} ${item.match.group ? `| Group ${escapeHtml(item.match.group)}` : ""}</p>
+        <p class="matchMeta">${escapeHtml(item.match.date || "Date TBD")} ${escapeHtml(item.match.time || "")} | ${escapeHtml(item.match.venue || "Venue TBD")}</p>
+      </div>
+      <span class="badge scheduled">Scheduled</span>
+    </article>
+  `;
 }
 
 function resultCard(item) {
@@ -292,7 +303,7 @@ function resultCard(item) {
   return `
     <article class="resultCard ${item.isLive ? "isLive" : ""}">
       <div class="resultTop">
-        <span class="badge ${item.isFinal ? "final" : ""}">${item.isLive ? `LIVE ${item.minute ? `${item.minute}'` : ""}` : item.status}</span>
+        <span class="badge ${item.isFinal ? "final" : ""}">${item.isLive ? `LIVE ${item.minute || ""}` : item.status}</span>
         <span>${escapeHtml(item.match.stage)}</span>
       </div>
       <div class="resultTeams">
@@ -424,65 +435,6 @@ function renderPredictionTrends() {
       `;
     })
     .join("");
-}
-
-function syncScenarioFields() {
-  const id = $("scenarioMatch").value;
-  const match = state.data?.matches.find((item) => String(item.id) === String(id));
-  const active = match ? activeScore(match) : null;
-  $("scenarioHome").value = active?.score?.[0] ?? 0;
-  $("scenarioAway").value = active?.score?.[1] ?? 0;
-}
-
-function applyScenario() {
-  const id = $("scenarioMatch").value;
-  state.manualScores[id] = {
-    score: [Number($("scenarioHome").value || 0), Number($("scenarioAway").value || 0)],
-    status: "MANUAL",
-    minute: "trial",
-  };
-  localStorage.setItem("wcManualScores", JSON.stringify(state.manualScores));
-  render();
-}
-
-function clearScenario() {
-  state.manualScores = {};
-  localStorage.removeItem("wcManualScores");
-  syncScenarioFields();
-  render();
-}
-
-function renderScenario(model) {
-  const id = $("scenarioMatch").value;
-  const item = model.matchResults.find((result) => String(result.match.id) === String(id));
-  if (!item) return;
-  $("scenarioResult").innerHTML = `
-    <section class="panel">
-      <h2>Scenario Result</h2>
-      ${matchCard(item)}
-    </section>
-    <section class="panel">
-      <h2>Payout Preview</h2>
-      <div class="predictionPills">
-        ${item.winners.length ? item.winners.map((name) => `<span class="pill">${escapeHtml(name)} ${money(item.prizePerWinner)}</span>`).join("") : `<span class="pill">Rollover ${money(item.rollover)}</span>`}
-      </div>
-    </section>
-  `;
-}
-
-function exportCsv() {
-  const model = calculate();
-  const lines = [["Rank", "Name", "Total", "Confirmed", "Live", "Exact", "Wins"]];
-  model.leaderboard.forEach((row, index) => {
-    lines.push([index + 1, row.name, Math.round(row.total), Math.round(row.confirmed), Math.round(row.live), row.exact, row.wins]);
-  });
-  const csv = lines.map((line) => line.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(",")).join("\n");
-  const blob = new Blob([csv], { type: "text/csv" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "world-cup-leaderboard.csv";
-  link.click();
-  URL.revokeObjectURL(link.href);
 }
 
 function formatTime(value) {
