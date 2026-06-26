@@ -19,7 +19,10 @@ const TEAM_ALIASES = {
   "côte d ivoire": "ivory coast",
   curacao: "curacao",
   curaçao: "curacao",
+  turkiye: "turkey",
+  türkiye: "turkey",
   "bosnia herzegovina": "bosnia and herzegovina",
+  "congo dr": "dr congo",
 };
 const money = (value) => {
   const formatted = new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }).format(Number(value || 0));
