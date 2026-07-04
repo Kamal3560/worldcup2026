@@ -13374,8 +13374,8 @@
       "day": "Sat",
       "date": "Jul 4, 2026",
       "time": "20:30",
-      "home": "Win 73",
-      "away": "Win 76",
+      "home": "Canada",
+      "away": "Morocco",
       "group": null,
       "venue": "Houston - Houston Stadium",
       "stage": "Round of 16",
@@ -13383,15 +13383,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          3
+        ],
+        "AlaeeZ": [
+          0,
+          1
+        ],
+        "Ali": [
+          0,
+          1
+        ],
+        "Ali.Kh": [
+          0,
+          2
+        ],
+        "Amin": [
+          1,
+          3
+        ],
+        "Amir.B": [
+          0,
+          1
+        ],
+        "Amir.R": [
+          2,
+          1
+        ],
+        "Amirali": [
+          1,
+          2
+        ],
+        "Amirhossein": [
+          0,
+          1
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          1,
+          1
+        ],
+        "Arsan": [
+          1,
+          2
+        ],
+        "Ashksa": [
+          0,
+          2
+        ],
+        "Ashkan.V": [
+          2,
+          2
+        ],
+        "Babak": [
+          0,
+          1
+        ],
+        "D & S": [
+          0,
+          1
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          0,
+          2
+        ],
+        "Gh & H": [
+          1,
+          1
+        ],
+        "Golbarg": [
+          2,
+          1
+        ],
+        "HaKaRez": [
+          1,
+          2
+        ],
+        "Hamid": [
+          1,
+          2
+        ],
+        "Leila": [
+          1,
+          0
+        ],
+        "M & H": [
+          0,
+          2
+        ],
+        "Mojtaba": [
+          0,
+          2
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          1,
+          1
+        ],
+        "Pejhman": [
+          1,
+          2
+        ],
+        "Pouyan": [
+          1,
+          1
+        ],
+        "Razi": [
+          1,
+          2
+        ],
+        "Saeed": [
+          1,
+          2
+        ],
+        "Siamak": [
+          1,
+          2
+        ],
+        "Tannaz": [
+          2,
+          1
+        ]
+      }
     },
     {
       "id": 90,
       "day": "Sun",
       "date": "Jul 5, 2026",
       "time": "00:30",
-      "home": "Win 75",
-      "away": "Win 78",
+      "home": "Paraguay",
+      "away": "France",
       "group": null,
       "venue": "Philadelphia - Philadelphia Stadium",
       "stage": "Round of 16",
@@ -13399,15 +13532,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          4
+        ],
+        "AlaeeZ": [
+          0,
+          2
+        ],
+        "Ali": [
+          1,
+          2
+        ],
+        "Ali.Kh": [
+          0,
+          2
+        ],
+        "Amin": [
+          0,
+          3
+        ],
+        "Amir.B": [
+          0,
+          2
+        ],
+        "Amir.R": [
+          1,
+          3
+        ],
+        "Amirali": [
+          0,
+          2
+        ],
+        "Amirhossein": [
+          0,
+          3
+        ],
+        "Arman": [
+          0,
+          2
+        ],
+        "Arsalan": [
+          2,
+          0
+        ],
+        "Arsan": [
+          0,
+          3
+        ],
+        "Ashksa": [
+          1,
+          2
+        ],
+        "Ashkan.V": [
+          1,
+          3
+        ],
+        "Babak": [
+          0,
+          2
+        ],
+        "D & S": [
+          1,
+          3
+        ],
+        "Duplicate+S": [
+          0,
+          2
+        ],
+        "Erfaan": [
+          0,
+          3
+        ],
+        "Gh & H": [
+          0,
+          2
+        ],
+        "Golbarg": [
+          0,
+          3
+        ],
+        "HaKaRez": [
+          0,
+          2
+        ],
+        "Hamid": [
+          1,
+          3
+        ],
+        "Leila": [
+          0,
+          2
+        ],
+        "M & H": [
+          0,
+          3
+        ],
+        "Mojtaba": [
+          0,
+          2
+        ],
+        "Niloofar": [
+          1,
+          2
+        ],
+        "Parham": [
+          0,
+          2
+        ],
+        "Pejhman": [
+          0,
+          2
+        ],
+        "Pouyan": [
+          0,
+          2
+        ],
+        "Razi": [
+          1,
+          3
+        ],
+        "Saeed": [
+          1,
+          3
+        ],
+        "Siamak": [
+          1,
+          2
+        ],
+        "Tannaz": [
+          3,
+          0
+        ]
+      }
     },
     {
       "id": 91,
       "day": "Sun",
       "date": "Jul 5, 2026",
       "time": "23:30",
-      "home": "Win 74",
-      "away": "Win 77",
+      "home": "Brazil",
+      "away": "Norway",
       "group": null,
       "venue": "New York - New York New Jersey Stadium",
       "stage": "Round of 16",
@@ -13415,15 +13681,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          2
+        ],
+        "AlaeeZ": [
+          2,
+          1
+        ],
+        "Ali": [
+          2,
+          0
+        ],
+        "Ali.Kh": [
+          2,
+          1
+        ],
+        "Amin": [
+          2,
+          1
+        ],
+        "Amir.B": [
+          2,
+          2
+        ],
+        "Amir.R": [
+          2,
+          1
+        ],
+        "Amirali": [
+          1,
+          2
+        ],
+        "Amirhossein": [
+          2,
+          1
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          1,
+          1
+        ],
+        "Arsan": [
+          2,
+          2
+        ],
+        "Ashksa": [
+          2,
+          1
+        ],
+        "Ashkan.V": [
+          3,
+          1
+        ],
+        "Babak": [
+          3,
+          1
+        ],
+        "D & S": [
+          2,
+          1
+        ],
+        "Duplicate+S": [
+          3,
+          1
+        ],
+        "Erfaan": [
+          3,
+          1
+        ],
+        "Gh & H": [
+          2,
+          0
+        ],
+        "Golbarg": [
+          3,
+          1
+        ],
+        "HaKaRez": [
+          3,
+          2
+        ],
+        "Hamid": [
+          2,
+          1
+        ],
+        "Leila": [
+          2,
+          1
+        ],
+        "M & H": [
+          3,
+          2
+        ],
+        "Mojtaba": [
+          1,
+          1
+        ],
+        "Niloofar": [
+          2,
+          0
+        ],
+        "Parham": [
+          1,
+          2
+        ],
+        "Pejhman": [
+          2,
+          1
+        ],
+        "Pouyan": [
+          2,
+          1
+        ],
+        "Razi": [
+          1,
+          2
+        ],
+        "Saeed": [
+          2,
+          1
+        ],
+        "Siamak": [
+          1,
+          1
+        ],
+        "Tannaz": [
+          2,
+          2
+        ]
+      }
     },
     {
       "id": 92,
       "day": "Mon",
       "date": "Jul 6, 2026",
       "time": "03:30",
-      "home": "Win 79",
-      "away": "Win 80",
+      "home": "Mexico",
+      "away": "England",
       "group": null,
       "venue": "Mexico City - Mexico City Stadium",
       "stage": "Round of 16",
@@ -13431,15 +13830,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          0
+        ],
+        "AlaeeZ": [
+          1,
+          1
+        ],
+        "Ali": [
+          0,
+          1
+        ],
+        "Ali.Kh": [
+          1,
+          2
+        ],
+        "Amin": [
+          1,
+          2
+        ],
+        "Amir.B": [
+          1,
+          2
+        ],
+        "Amir.R": [
+          1,
+          2
+        ],
+        "Amirali": [
+          1,
+          1
+        ],
+        "Amirhossein": [
+          1,
+          1
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          1,
+          0
+        ],
+        "Arsan": [
+          2,
+          1
+        ],
+        "Ashksa": [
+          1,
+          1
+        ],
+        "Ashkan.V": [
+          2,
+          1
+        ],
+        "Babak": [
+          1,
+          2
+        ],
+        "D & S": [
+          1,
+          2
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          1,
+          2
+        ],
+        "Gh & H": [
+          2,
+          1
+        ],
+        "Golbarg": [
+          2,
+          2
+        ],
+        "HaKaRez": [
+          2,
+          1
+        ],
+        "Hamid": [
+          1,
+          2
+        ],
+        "Leila": [
+          1,
+          1
+        ],
+        "M & H": [
+          2,
+          1
+        ],
+        "Mojtaba": [
+          2,
+          2
+        ],
+        "Niloofar": [
+          1,
+          2
+        ],
+        "Parham": [
+          0,
+          0
+        ],
+        "Pejhman": [
+          2,
+          1
+        ],
+        "Pouyan": [
+          1,
+          1
+        ],
+        "Razi": [
+          1,
+          1
+        ],
+        "Saeed": [
+          2,
+          1
+        ],
+        "Siamak": [
+          1,
+          0
+        ],
+        "Tannaz": [
+          3,
+          2
+        ]
+      }
     },
     {
       "id": 93,
       "day": "Mon",
       "date": "Jul 6, 2026",
       "time": "22:30",
-      "home": "Win 84",
-      "away": "Win 83",
+      "home": "Portugal",
+      "away": "Spain",
       "group": null,
       "venue": "Dallas - Dallas Stadium",
       "stage": "Round of 16",
@@ -13447,15 +13979,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          3
+        ],
+        "AlaeeZ": [
+          1,
+          1
+        ],
+        "Ali": [
+          1,
+          0
+        ],
+        "Ali.Kh": [
+          1,
+          2
+        ],
+        "Amin": [
+          2,
+          3
+        ],
+        "Amir.B": [
+          1,
+          2
+        ],
+        "Amir.R": [
+          1,
+          2
+        ],
+        "Amirali": [
+          1,
+          2
+        ],
+        "Amirhossein": [
+          2,
+          2
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          1,
+          1
+        ],
+        "Arsan": [
+          2,
+          2
+        ],
+        "Ashksa": [
+          1,
+          1
+        ],
+        "Ashkan.V": [
+          2,
+          3
+        ],
+        "Babak": [
+          1,
+          2
+        ],
+        "D & S": [
+          2,
+          2
+        ],
+        "Duplicate+S": [
+          2,
+          1
+        ],
+        "Erfaan": [
+          2,
+          1
+        ],
+        "Gh & H": [
+          1,
+          2
+        ],
+        "Golbarg": [
+          3,
+          1
+        ],
+        "HaKaRez": [
+          1,
+          2
+        ],
+        "Hamid": [
+          2,
+          2
+        ],
+        "Leila": [
+          1,
+          1
+        ],
+        "M & H": [
+          2,
+          2
+        ],
+        "Mojtaba": [
+          0,
+          2
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          2,
+          2
+        ],
+        "Pejhman": [
+          1,
+          2
+        ],
+        "Pouyan": [
+          0,
+          1
+        ],
+        "Razi": [
+          2,
+          2
+        ],
+        "Saeed": [
+          1,
+          2
+        ],
+        "Siamak": [
+          1,
+          2
+        ],
+        "Tannaz": [
+          2,
+          2
+        ]
+      }
     },
     {
       "id": 94,
       "day": "Tue",
       "date": "Jul 7, 2026",
       "time": "03:30",
-      "home": "Win 82",
-      "away": "Win 81",
+      "home": "United States",
+      "away": "Belgium",
       "group": null,
       "venue": "Seattle - Seattle Stadium",
       "stage": "Round of 16",
@@ -13463,15 +14128,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          0
+        ],
+        "AlaeeZ": [
+          1,
+          1
+        ],
+        "Ali": [
+          1,
+          0
+        ],
+        "Ali.Kh": [
+          1,
+          1
+        ],
+        "Amin": [
+          1,
+          0
+        ],
+        "Amir.B": [
+          1,
+          0
+        ],
+        "Amir.R": [
+          1,
+          1
+        ],
+        "Amirali": [
+          1,
+          2
+        ],
+        "Amirhossein": [
+          2,
+          1
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          1,
+          0
+        ],
+        "Arsan": [
+          2,
+          2
+        ],
+        "Ashksa": [
+          1,
+          2
+        ],
+        "Ashkan.V": [
+          2,
+          1
+        ],
+        "Babak": [
+          2,
+          1
+        ],
+        "D & S": [
+          1,
+          0
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          2,
+          1
+        ],
+        "Gh & H": [
+          1,
+          2
+        ],
+        "Golbarg": [
+          1,
+          1
+        ],
+        "HaKaRez": [
+          2,
+          1
+        ],
+        "Hamid": [
+          2,
+          1
+        ],
+        "Leila": [
+          2,
+          3
+        ],
+        "M & H": [
+          2,
+          1
+        ],
+        "Mojtaba": [
+          1,
+          0
+        ],
+        "Niloofar": [
+          2,
+          1
+        ],
+        "Parham": [
+          1,
+          0
+        ],
+        "Pejhman": [
+          1,
+          2
+        ],
+        "Pouyan": [
+          1,
+          1
+        ],
+        "Razi": [
+          2,
+          1
+        ],
+        "Saeed": [
+          1,
+          1
+        ],
+        "Siamak": [
+          1,
+          1
+        ],
+        "Tannaz": [
+          2,
+          1
+        ]
+      }
     },
     {
       "id": 95,
       "day": "Tue",
       "date": "Jul 7, 2026",
       "time": "19:30",
-      "home": "Win 87",
-      "away": "Win 86",
+      "home": "Argentina",
+      "away": "Egypt",
       "group": null,
       "venue": "Atlanta - Atlanta Stadium",
       "stage": "Round of 16",
@@ -13479,15 +14277,148 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          3
+        ],
+        "AlaeeZ": [
+          2,
+          0
+        ],
+        "Ali": [
+          3,
+          0
+        ],
+        "Ali.Kh": [
+          2,
+          0
+        ],
+        "Amin": [
+          3,
+          0
+        ],
+        "Amir.B": [
+          0,
+          3
+        ],
+        "Amir.R": [
+          3,
+          1
+        ],
+        "Amirali": [
+          3,
+          1
+        ],
+        "Amirhossein": [
+          2,
+          2
+        ],
+        "Arman": [
+          3,
+          0
+        ],
+        "Arsalan": [
+          2,
+          1
+        ],
+        "Arsan": [
+          4,
+          0
+        ],
+        "Ashksa": [
+          2,
+          0
+        ],
+        "Ashkan.V": [
+          3,
+          1
+        ],
+        "Babak": [
+          3,
+          0
+        ],
+        "D & S": [
+          2,
+          1
+        ],
+        "Duplicate+S": [
+          3,
+          0
+        ],
+        "Erfaan": [
+          2,
+          0
+        ],
+        "Gh & H": [
+          3,
+          1
+        ],
+        "Golbarg": [
+          2,
+          0
+        ],
+        "HaKaRez": [
+          2,
+          1
+        ],
+        "Hamid": [
+          3,
+          1
+        ],
+        "Leila": [
+          2,
+          1
+        ],
+        "M & H": [
+          3,
+          1
+        ],
+        "Mojtaba": [
+          4,
+          0
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          3,
+          0
+        ],
+        "Pejhman": [
+          2,
+          1
+        ],
+        "Pouyan": [
+          3,
+          0
+        ],
+        "Razi": [
+          3,
+          1
+        ],
+        "Saeed": [
+          2,
+          0
+        ],
+        "Siamak": [
+          3,
+          0
+        ],
+        "Tannaz": [
+          3,
+          0
+        ]
+      }
     },
     {
       "id": 96,
       "day": "Tue",
       "date": "Jul 7, 2026",
       "time": "23:30",
-      "home": "Win 85",
-      "away": "Win 88",
+      "home": "Switzerland",
+      "away": "Colombia",
       "group": null,
       "venue": "Vancouver - BC Place Vancouver",
       "stage": "Round of 16",
@@ -13495,7 +14426,140 @@
       "prizePerPerson": 70000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          0
+        ],
+        "AlaeeZ": [
+          1,
+          1
+        ],
+        "Ali": [
+          0,
+          1
+        ],
+        "Ali.Kh": [
+          0,
+          1
+        ],
+        "Amin": [
+          1,
+          2
+        ],
+        "Amir.B": [
+          1,
+          1
+        ],
+        "Amir.R": [
+          1,
+          1
+        ],
+        "Amirali": [
+          2,
+          1
+        ],
+        "Amirhossein": [
+          0,
+          1
+        ],
+        "Arman": [
+          2,
+          1
+        ],
+        "Arsalan": [
+          2,
+          1
+        ],
+        "Arsan": [
+          2,
+          2
+        ],
+        "Ashksa": [
+          0,
+          1
+        ],
+        "Ashkan.V": [
+          2,
+          1
+        ],
+        "Babak": [
+          2,
+          1
+        ],
+        "D & S": [
+          1,
+          1
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          1,
+          2
+        ],
+        "Gh & H": [
+          1,
+          2
+        ],
+        "Golbarg": [
+          1,
+          2
+        ],
+        "HaKaRez": [
+          0,
+          1
+        ],
+        "Hamid": [
+          1,
+          1
+        ],
+        "Leila": [
+          1,
+          3
+        ],
+        "M & H": [
+          0,
+          2
+        ],
+        "Mojtaba": [
+          1,
+          1
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          1,
+          1
+        ],
+        "Pejhman": [
+          2,
+          1
+        ],
+        "Pouyan": [
+          2,
+          1
+        ],
+        "Razi": [
+          1,
+          1
+        ],
+        "Saeed": [
+          1,
+          1
+        ],
+        "Siamak": [
+          0,
+          1
+        ],
+        "Tannaz": [
+          2,
+          2
+        ]
+      }
     },
     {
       "id": 97,
