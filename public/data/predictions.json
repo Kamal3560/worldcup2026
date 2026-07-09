@@ -14566,8 +14566,8 @@
       "day": "Thu",
       "date": "Jul 9, 2026",
       "time": "23:30",
-      "home": "Win 89",
-      "away": "Win 90",
+      "home": "Morocco",
+      "away": "France",
       "group": null,
       "venue": "Boston - Boston Stadium",
       "stage": "Quarterfinals",
@@ -14575,15 +14575,148 @@
       "prizePerPerson": 100000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          1,
+          3
+        ],
+        "AlaeeZ": [
+          3,
+          2
+        ],
+        "Ali": [
+          1,
+          2
+        ],
+        "Ali.Kh": [
+          1,
+          2
+        ],
+        "Amin": [
+          0,
+          2
+        ],
+        "Amir.B": [
+          1,
+          2
+        ],
+        "Amir.R": [
+          0,
+          1
+        ],
+        "Amirali": [
+          2,
+          1
+        ],
+        "Amirhossein": [
+          0,
+          1
+        ],
+        "Arman": [
+          1,
+          1
+        ],
+        "Arsalan": [
+          2,
+          3
+        ],
+        "Arsan": [
+          1,
+          4
+        ],
+        "Ashksa": [
+          3,
+          2
+        ],
+        "Ashkan.V": [
+          1,
+          2
+        ],
+        "Babak": [
+          1,
+          2
+        ],
+        "D & S": [
+          1,
+          3
+        ],
+        "Duplicate+S": [
+          0,
+          2
+        ],
+        "Erfaan": [
+          1,
+          3
+        ],
+        "Gh & H": [
+          1,
+          2
+        ],
+        "Golbarg": [
+          2,
+          3
+        ],
+        "HaKaRez": [
+          1,
+          1
+        ],
+        "Hamid": [
+          1,
+          3
+        ],
+        "Leila": [
+          1,
+          2
+        ],
+        "M & H": [
+          2,
+          3
+        ],
+        "Mojtaba": [
+          2,
+          4
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          1,
+          0
+        ],
+        "Pejhman": [
+          2,
+          1
+        ],
+        "Pouyan": [
+          0,
+          2
+        ],
+        "Razi": [
+          1,
+          2
+        ],
+        "Saeed": [
+          1,
+          0
+        ],
+        "Siamak": [
+          0,
+          1
+        ],
+        "Tannaz": [
+          0,
+          2
+        ]
+      }
     },
     {
       "id": 98,
       "day": "Fri",
       "date": "Jul 10, 2026",
       "time": "22:30",
-      "home": "Win 93",
-      "away": "Win 94",
+      "home": "Spain",
+      "away": "Belgium",
       "group": null,
       "venue": "Los Angeles - Los Angeles Stadium",
       "stage": "Quarterfinals",
@@ -14591,15 +14724,148 @@
       "prizePerPerson": 100000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          0,
+          1
+        ],
+        "AlaeeZ": [
+          4,
+          2
+        ],
+        "Ali": [
+          1,
+          2
+        ],
+        "Ali.Kh": [
+          1,
+          0
+        ],
+        "Amin": [
+          2,
+          1
+        ],
+        "Amir.B": [
+          3,
+          0
+        ],
+        "Amir.R": [
+          1,
+          1
+        ],
+        "Amirali": [
+          2,
+          1
+        ],
+        "Amirhossein": [
+          2,
+          0
+        ],
+        "Arman": [
+          1,
+          1
+        ],
+        "Arsalan": [
+          0,
+          1
+        ],
+        "Arsan": [
+          0,
+          1
+        ],
+        "Ashksa": [
+          1,
+          0
+        ],
+        "Ashkan.V": [
+          1,
+          0
+        ],
+        "Babak": [
+          2,
+          1
+        ],
+        "D & S": [
+          1,
+          0
+        ],
+        "Duplicate+S": [
+          1,
+          1
+        ],
+        "Erfaan": [
+          2,
+          0
+        ],
+        "Gh & H": [
+          2,
+          1
+        ],
+        "Golbarg": [
+          2,
+          1
+        ],
+        "HaKaRez": [
+          1,
+          1
+        ],
+        "Hamid": [
+          2,
+          0
+        ],
+        "Leila": [
+          2,
+          0
+        ],
+        "M & H": [
+          2,
+          0
+        ],
+        "Mojtaba": [
+          2,
+          0
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          0,
+          1
+        ],
+        "Pejhman": [
+          1,
+          0
+        ],
+        "Pouyan": [
+          0,
+          1
+        ],
+        "Razi": [
+          2,
+          0
+        ],
+        "Saeed": [
+          1,
+          0
+        ],
+        "Siamak": [
+          2,
+          0
+        ],
+        "Tannaz": [
+          2,
+          1
+        ]
+      }
     },
     {
       "id": 99,
       "day": "Sun",
       "date": "Jul 12, 2026",
       "time": "00:30",
-      "home": "Win 91",
-      "away": "Win 92",
+      "home": "Norway",
+      "away": "England",
       "group": null,
       "venue": "Miami - Miami Stadium",
       "stage": "Quarterfinals",
@@ -14607,15 +14873,148 @@
       "prizePerPerson": 100000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          1,
+          1
+        ],
+        "AlaeeZ": [
+          2,
+          2
+        ],
+        "Ali": [
+          0,
+          1
+        ],
+        "Ali.Kh": [
+          1,
+          2
+        ],
+        "Amin": [
+          1,
+          2
+        ],
+        "Amir.B": [
+          2,
+          3
+        ],
+        "Amir.R": [
+          2,
+          2
+        ],
+        "Amirali": [
+          2,
+          1
+        ],
+        "Amirhossein": [
+          1,
+          2
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          2,
+          0
+        ],
+        "Arsan": [
+          2,
+          3
+        ],
+        "Ashksa": [
+          2,
+          1
+        ],
+        "Ashkan.V": [
+          1,
+          1
+        ],
+        "Babak": [
+          2,
+          1
+        ],
+        "D & S": [
+          2,
+          2
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          1,
+          2
+        ],
+        "Gh & H": [
+          1,
+          2
+        ],
+        "Golbarg": [
+          2,
+          1
+        ],
+        "HaKaRez": [
+          1,
+          1
+        ],
+        "Hamid": [
+          1,
+          2
+        ],
+        "Leila": [
+          1,
+          2
+        ],
+        "M & H": [
+          2,
+          2
+        ],
+        "Mojtaba": [
+          3,
+          3
+        ],
+        "Niloofar": [
+          0,
+          1
+        ],
+        "Parham": [
+          2,
+          3
+        ],
+        "Pejhman": [
+          1,
+          1
+        ],
+        "Pouyan": [
+          3,
+          1
+        ],
+        "Razi": [
+          1,
+          0
+        ],
+        "Saeed": [
+          1,
+          0
+        ],
+        "Siamak": [
+          1,
+          2
+        ],
+        "Tannaz": [
+          2,
+          2
+        ]
+      }
     },
     {
       "id": 100,
       "day": "Sun",
       "date": "Jul 12, 2026",
       "time": "04:30",
-      "home": "Win 95",
-      "away": "Win 96",
+      "home": "Argentina",
+      "away": "Switzerland",
       "group": null,
       "venue": "Kansas City - Kansas City Stadium",
       "stage": "Quarterfinals",
@@ -14623,7 +15022,140 @@
       "prizePerPerson": 100000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          1,
+          1
+        ],
+        "AlaeeZ": [
+          3,
+          1
+        ],
+        "Ali": [
+          1,
+          0
+        ],
+        "Ali.Kh": [
+          1,
+          0
+        ],
+        "Amin": [
+          2,
+          0
+        ],
+        "Amir.B": [
+          2,
+          0
+        ],
+        "Amir.R": [
+          2,
+          0
+        ],
+        "Amirali": [
+          2,
+          0
+        ],
+        "Amirhossein": [
+          2,
+          0
+        ],
+        "Arman": [
+          3,
+          1
+        ],
+        "Arsalan": [
+          1,
+          1
+        ],
+        "Arsan": [
+          0,
+          1
+        ],
+        "Ashksa": [
+          2,
+          1
+        ],
+        "Ashkan.V": [
+          2,
+          1
+        ],
+        "Babak": [
+          2,
+          0
+        ],
+        "D & S": [
+          3,
+          1
+        ],
+        "Duplicate+S": [
+          3,
+          1
+        ],
+        "Erfaan": [
+          2,
+          0
+        ],
+        "Gh & H": [
+          2,
+          0
+        ],
+        "Golbarg": [
+          3,
+          2
+        ],
+        "HaKaRez": [
+          1,
+          1
+        ],
+        "Hamid": [
+          3,
+          1
+        ],
+        "Leila": [
+          3,
+          0
+        ],
+        "M & H": [
+          2,
+          1
+        ],
+        "Mojtaba": [
+          1,
+          0
+        ],
+        "Niloofar": [
+          2,
+          0
+        ],
+        "Parham": [
+          3,
+          0
+        ],
+        "Pejhman": [
+          1,
+          1
+        ],
+        "Pouyan": [
+          1,
+          1
+        ],
+        "Razi": [
+          2,
+          1
+        ],
+        "Saeed": [
+          1,
+          0
+        ],
+        "Siamak": [
+          2,
+          1
+        ],
+        "Tannaz": [
+          2,
+          0
+        ]
+      }
     },
     {
       "id": 101,
