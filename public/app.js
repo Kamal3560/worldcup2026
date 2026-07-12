@@ -103,7 +103,7 @@ async function refreshLive() {
 }
 
 function activeScore(match) {
-  const live = state.live.matches.find((item) => sameMatch(item, match));
+  const live = matchingLiveMatch(match);
   if (live?.score && hasUsableLiveScore(live.status)) {
     return { score: live.score, status: live.status || "LIVE", minute: live.minute || null, source: state.live.provider };
   }
@@ -152,13 +152,26 @@ function scoreMatch(match) {
   return base;
 }
 
-function sameMatch(live, match) {
-  if (String(live.id) === String(match.id)) return true;
-  const liveHome = normalizeName(live.home);
-  const liveAway = normalizeName(live.away);
-  const home = normalizeName(match.home);
-  const away = normalizeName(match.away);
-  return liveHome && liveAway && ((liveHome === home && liveAway === away) || (liveHome === away && liveAway === home));
+function matchingLiveMatch(match) {
+  for (const live of state.live.matches) {
+    if (String(live.id) === String(match.id)) return live;
+
+    const liveHome = normalizeName(live.home);
+    const liveAway = normalizeName(live.away);
+    const home = normalizeName(match.home);
+    const away = normalizeName(match.away);
+    if (!liveHome || !liveAway) continue;
+
+    if (liveHome === home && liveAway === away) return live;
+    if (liveHome === away && liveAway === home) {
+      return {
+        ...live,
+        score: Array.isArray(live.score) ? [live.score[1], live.score[0]] : live.score,
+      };
+    }
+  }
+
+  return null;
 }
 
 function normalizeName(value) {
