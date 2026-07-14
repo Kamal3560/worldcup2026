@@ -15162,8 +15162,8 @@
       "day": "Tue",
       "date": "Jul 14, 2026",
       "time": "22:30",
-      "home": "Win 97",
-      "away": "Win 98",
+      "home": "France",
+      "away": "Spain",
       "group": null,
       "venue": "Dallas - Dallas Stadium",
       "stage": "Semi-Finals",
@@ -15171,15 +15171,148 @@
       "prizePerPerson": 170000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          1,
+          2
+        ],
+        "AlaeeZ": [
+          2,
+          3
+        ],
+        "Ali": [
+          2,
+          0
+        ],
+        "Ali.Kh": [
+          2,
+          1
+        ],
+        "Amin": [
+          3,
+          1
+        ],
+        "Amir.B": [
+          3,
+          1
+        ],
+        "Amir.R": [
+          2,
+          1
+        ],
+        "Amirali": [
+          1,
+          2
+        ],
+        "Amirhossein": [
+          2,
+          1
+        ],
+        "Arman": [
+          1,
+          1
+        ],
+        "Arsalan": [
+          2,
+          1
+        ],
+        "Arsan": [
+          3,
+          1
+        ],
+        "Ashksa": [
+          2,
+          1
+        ],
+        "Ashkan.V": [
+          2,
+          1
+        ],
+        "Babak": [
+          1,
+          2
+        ],
+        "D & S": [
+          2,
+          1
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          2,
+          1
+        ],
+        "Gh & H": [
+          2,
+          1
+        ],
+        "Golbarg": [
+          2,
+          1
+        ],
+        "HaKaRez": [
+          2,
+          1
+        ],
+        "Hamid": [
+          3,
+          2
+        ],
+        "Leila": [
+          3,
+          2
+        ],
+        "M & H": [
+          1,
+          1
+        ],
+        "Mojtaba": [
+          2,
+          3
+        ],
+        "Niloofar": [
+          1,
+          0
+        ],
+        "Parham": [
+          0,
+          1
+        ],
+        "Pejhman": [
+          1,
+          2
+        ],
+        "Pouyan": [
+          1,
+          0
+        ],
+        "Razi": [
+          1,
+          0
+        ],
+        "Saeed": [
+          0,
+          1
+        ],
+        "Siamak": [
+          1,
+          1
+        ],
+        "Tannaz": [
+          2,
+          1
+        ]
+      }
     },
     {
       "id": 102,
       "day": "Wed",
       "date": "Jul 15, 2026",
       "time": "22:30",
-      "home": "Win 99",
-      "away": "Win 100",
+      "home": "England",
+      "away": "Argentina",
       "group": null,
       "venue": "Atlanta - Atlanta Stadium",
       "stage": "Semi-Finals",
@@ -15187,7 +15320,140 @@
       "prizePerPerson": 170000,
       "seedScore": null,
       "status": "SCHEDULED",
-      "predictions": {}
+      "predictions": {
+        "Ahmad": [
+          1,
+          1
+        ],
+        "AlaeeZ": [
+          2,
+          3
+        ],
+        "Ali": [
+          3,
+          1
+        ],
+        "Ali.Kh": [
+          2,
+          2
+        ],
+        "Amin": [
+          2,
+          2
+        ],
+        "Amir.B": [
+          2,
+          1
+        ],
+        "Amir.R": [
+          1,
+          2
+        ],
+        "Amirali": [
+          2,
+          1
+        ],
+        "Amirhossein": [
+          2,
+          2
+        ],
+        "Arman": [
+          1,
+          2
+        ],
+        "Arsalan": [
+          2,
+          1
+        ],
+        "Arsan": [
+          4,
+          1
+        ],
+        "Ashksa": [
+          1,
+          1
+        ],
+        "Ashkan.V": [
+          2,
+          2
+        ],
+        "Babak": [
+          1,
+          1
+        ],
+        "D & S": [
+          2,
+          1
+        ],
+        "Duplicate+S": [
+          1,
+          2
+        ],
+        "Erfaan": [
+          2,
+          3
+        ],
+        "Gh & H": [
+          2,
+          3
+        ],
+        "Golbarg": [
+          0,
+          2
+        ],
+        "HaKaRez": [
+          3,
+          2
+        ],
+        "Hamid": [
+          4,
+          2
+        ],
+        "Leila": [
+          1,
+          2
+        ],
+        "M & H": [
+          2,
+          3
+        ],
+        "Mojtaba": [
+          2,
+          4
+        ],
+        "Niloofar": [
+          1,
+          1
+        ],
+        "Parham": [
+          0,
+          0
+        ],
+        "Pejhman": [
+          2,
+          1
+        ],
+        "Pouyan": [
+          1,
+          1
+        ],
+        "Razi": [
+          1,
+          2
+        ],
+        "Saeed": [
+          0,
+          1
+        ],
+        "Siamak": [
+          1,
+          1
+        ],
+        "Tannaz": [
+          1,
+          1
+        ]
+      }
     },
     {
       "id": 103,
